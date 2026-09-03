@@ -300,7 +300,7 @@
       set: function (on) {
         if (on && !el) {
           el = mkShadowOverlay('div', CX + 'guide-el');
-          el.style.cssText = 'position:fixed;left:0;right:0;height:4px;margin-top:-2px;background:#0046b8;box-shadow:0 0 6px rgba(0,0,0,.45);pointer-events:none;z-index:' + Z.guide;
+          el.style.cssText = 'position:fixed;left:0;right:0;height:10px;margin-top:-5px;background:#000;border-top:2px solid #ffed00;border-bottom:2px solid #ffed00;box-sizing:border-box;pointer-events:none;z-index:' + Z.guide;
           onMove = raf1(function (y) { el.style.top = y + 'px'; });
           document.addEventListener('mousemove', function (e) { onMove(e.clientY); }, { passive: true });
         }
