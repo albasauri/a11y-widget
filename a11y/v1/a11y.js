@@ -10,6 +10,16 @@
   // (p.ej. el listener de DOMContentLoaded de mas abajo), asi que hay que guardarlo aqui arriba.
   var SELF_SCRIPT = document.currentScript;
 
+  // Base para assets (fuentes, etc.) relativa a DESDE DONDE SE CARGO este script — asi
+  // funciona igual si se sirvio del CDN (copper-wolf) o del espejo de GitHub Pages, sin
+  // hardcodear ningun host. Fallback al CDN solo si por lo que sea no hay currentScript.src
+  // (p.ej. injeccion manual rara) — nunca se deja sin fuente.
+  var ASSET_BASE = (function () {
+    var src = SELF_SCRIPT && SELF_SCRIPT.src;
+    if (src) return src.replace(/[^/]*$/, '');
+    return 'https://cdn.alonsobasauri.com/a11y/v1/';
+  })();
+
   if (window.__uvegA11yLoaded) return;
   window.__uvegA11yLoaded = true;
   if (typeof document.body === 'undefined' && !document.body) return;
@@ -123,9 +133,13 @@
   var EFFECTS_CSS = [
     'html.' + CX + 'fontface-sansserif *:not(i):not([class*="fa-"]):not([class*="icon"]){font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif!important}',
     'html.' + CX + 'fontface-serif *:not(i):not([class*="fa-"]):not([class*="icon"]){font-family:Georgia,Cambria,"Times New Roman",Times,serif!important}',
-    // sin el archivo OpenDyslexic real (no se hospeda en el CDN todavia): aproximacion practica
-    // sans-serif + tracking/leading amplios, tecnica comun cuando no se puede cargar la fuente.
-    'html.' + CX + 'fontface-dyslexic *:not(i):not([class*="fa-"]):not([class*="icon"]){font-family:Verdana,"Comic Sans MS",Arial,sans-serif!important;letter-spacing:.04em!important;word-spacing:.1em!important}',
+    // OpenDyslexic real (mismo .otf que traia el plugin original), servida desde el mismo
+    // origen del que se cargo este script (ASSET_BASE) para que funcione igual desde el CDN
+    // que desde el espejo de GitHub Pages. Verdana/Comic Sans queda como RESPALDO en la pila
+    // por si la fuente no llega a cargar (red lenta, bloqueo, etc.) — ya no es la funcion
+    // principal, es el fallback.
+    '@font-face{font-family:"opendyslexic-uveg";src:url("' + ASSET_BASE + 'fontface/opendyslexic.otf") format("opentype");font-display:swap}',
+    'html.' + CX + 'fontface-dyslexic *:not(i):not([class*="fa-"]):not([class*="icon"]){font-family:"opendyslexic-uveg",Verdana,"Comic Sans MS",Arial,sans-serif!important;letter-spacing:.04em!important;word-spacing:.1em!important}',
     'html.' + CX + 'fontsize-125 *{font-size:1.25rem!important}',
     'html.' + CX + 'fontsize-150 *{font-size:1.5rem!important}',
     'html.' + CX + 'fontsize-200 *{font-size:2rem!important}',
