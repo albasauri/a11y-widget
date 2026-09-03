@@ -346,7 +346,14 @@
       clone.querySelectorAll('script').forEach(function (s) { s.remove(); });
       stage.innerHTML = '';
       clone.style.margin = '0';
-      clone.style.width = document.documentElement.scrollWidth + 'px';
+      // ancho Y alto EXPLICITOS (viewport, no scrollWidth/scrollHeight): reposition()
+      // ya trata x/y como coordenadas de viewport (clientX/clientY sin offset de scroll),
+      // asi que el clon debe representar el viewport actual, pinneado en (0,0). Ademas,
+      // sin un alto explicito el clon (position:absolute) no tiene un contenedor con alto
+      // definido, y cualquier CSS del tema con height:100% o 100vh en <body> (como el de
+      // este Moodle) colapsa a 0 -- eso dejaba la lupa en blanco, sin nada que magnificar.
+      clone.style.width = window.innerWidth + 'px';
+      clone.style.height = window.innerHeight + 'px';
       clone.style.transform = 'scale(' + scale + ')';
       clone.style.transformOrigin = '0 0';
       clone.style.position = 'absolute';
@@ -369,7 +376,12 @@
       set: function (on) {
         active = on;
         if (on && !lens) {
-          lens = mkShadowOverlay('div', CX + 'lens');
+          // luz DOM (no el shadow del widget): el clon necesita el CSS real de
+          // la pagina anfitriona, que no cruza la frontera de un shadow ajeno.
+          lens = document.createElement('div');
+          lens.className = CX + 'lens';
+          lens.setAttribute('aria-hidden', 'true');
+          document.body.appendChild(lens);
           lens.style.cssText = 'display:none;position:fixed;width:' + size + 'px;height:' + size + 'px;margin-left:-' + (size / 2) + 'px;margin-top:-' + (size / 2) + 'px;border-radius:50%;border:3px solid #0046b8;box-shadow:0 8px 32px rgba(0,0,0,.35);overflow:hidden;pointer-events:none;z-index:' + Z.lens + ';background:#fff';
           stage = document.createElement('div');
           stage.style.position = 'absolute';
