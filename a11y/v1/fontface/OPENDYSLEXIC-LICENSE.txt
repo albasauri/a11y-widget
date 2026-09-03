@@ -1,0 +1,93 @@
+OpenDyslexic (opendyslexic.otf) — atribución y licencia
+========================================================
+
+Este archivo (opendyslexic.otf, version 2.001, 48076 bytes, PS name
+"OpenDyslexic-Regular") se tomó del plugin Moodle original
+"accessibility_fontface" (local/accessibility/widgets/fontface) de
+Ponlawat Weerapanpisit, que a su vez lo distribuye sin modificar. La
+licencia embebida en el propio archivo (name table del OTF) dice,
+textual:
+
+  "Original Fonts are Bitstream. OpenDyslexic changes and additional
+  glyphs by Abelardo Gonzalez are licensed under a Creative Commons
+  Attribution 3.0 Unported License. Based on a work at
+  http://dyslexicfonts.com. (c) 2012 by Abelardo Gonzalez. Copying is
+  an act of love. Please copy. Bitstream license available here:
+  http://opendyslexic.org/legal/"
+
+Nota: esta es la versión 2012/2.001 de OpenDyslexic, previa al
+relicenciamiento del proyecto a SIL Open Font License (OFL) que hizo
+el repo oficial (github.com/antijingoist/opendyslexic) en versiones
+posteriores. La que gobierna ESTE archivo concreto es la de abajo, no
+la OFL de las versiones nuevas.
+
+1) Los glifos y cambios de Abelardo Gonzalez (OpenDyslexic propiamente)
+--------------------------------------------------------------------
+Licencia: Creative Commons Attribution 3.0 Unported (CC BY 3.0)
+https://creativecommons.org/licenses/by/3.0/
+
+Permite copiar, redistribuir y modificar, incluso con fines
+comerciales, con la única condición de dar crédito al autor:
+"OpenDyslexic by Abelardo Gonzalez (http://dyslexicfonts.com)".
+
+2) Fuente base (glifos originales) — Bitstream Vera
+--------------------------------------------------------------------
+Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved. Bitstream
+Vera is a trademark of Bitstream, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the fonts accompanying this license ("Fonts") and associated
+documentation files (the "Font Software"), to reproduce and distribute
+the Font Software, including without limitation the rights to use,
+copy, merge, publish, distribute, and/or sell copies of the Font
+Software, and to permit persons to whom the Font Software is furnished
+to do so, subject to the following conditions:
+
+The above copyright and trademark notices and this permission notice
+shall be included in all copies of one or more of the Font Software
+typefaces.
+
+The Font Software may be modified, altered, or added to, and in
+particular the designs of glyphs or characters in the Fonts may be
+modified and additional glyphs or characters may be added to the
+Fonts, only if the fonts are renamed to names not containing either
+the words "Bitstream" or the word "Vera". [Cumplido: el resultado se
+llama "OpenDyslexic", no contiene "Bitstream" ni "Vera".]
+
+This License becomes null and void to the extent applicable to Fonts
+or Font Software that has been modified and is distributed under the
+"Bitstream Vera" names.
+
+The Font Software may be sold as part of a larger software package but
+no copy of one or more of the Font Software typefaces may be sold by
+itself.
+
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN
+NO EVENT SHALL BITSTREAM OR THE GNOME FOUNDATION BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING ANY GENERAL, SPECIAL,
+INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF THE USE OR
+INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT
+SOFTWARE.
+
+Except as contained in this notice, the names of Gnome, the Gnome
+Foundation, and Bitstream Inc., shall not be used in advertising or
+otherwise to promote the sale, use or other dealings in this Font
+Software without prior written authorization from the Gnome
+Foundation or Bitstream Inc., respectively.
+
+(fuente del texto Bitstream Vera: dejavu-fonts.github.io/License.html,
+que lo reproduce del proyecto GNOME; opendyslexic.org/legal/ da 403
+al fetch directo pero el propio .otf embebe el mismo aviso y remite a
+esa URL).
+
+Conclusión para este repo/CDN
+--------------------------------------------------------------------
+Ambas licencias (CC BY 3.0 y Bitstream Vera) permiten redistribuir el
+archivo tal cual, incluso en un repositorio público, con la única
+condición de conservar este aviso de atribución junto al archivo. Por
+eso este .txt viaja siempre al lado de opendyslexic.otf, en el CDN
+(copper-wolf) y en el espejo de GitHub Pages (albasauri/a11y-widget).
